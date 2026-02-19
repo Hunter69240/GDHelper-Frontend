@@ -11,18 +11,23 @@ import Header from './components/Header'
 function App() {
   
   const [state,setState] = useState("mainscreen")
+  const [topic,setTopic]=useState("")
 
   function changeState(newState){
     setState(newState)
+  }
+
+  function setNewTopic(newTopic){
+    setTopic(newTopic)
   }
   return (
     <>
       <Header/>
       {state === "mainscreen" && <MainScreen state={state} changeState={changeState}/>}
-      {state === "generatetopic" && <GenerateTopic state={state} changeState={changeState}/>}
-      {state === "startrecording" && <StartRecording state={state} changeState={changeState}/>}
-      {state === "generatesummary" && <GenerateSummary state={state} changeState={changeState}/>}
-      {state === "result" && <Result state={state} changeState={changeState}/>}
+      {state === "generatetopic" && <GenerateTopic state={state} changeState={changeState} topic={topic} setNewTopic={setNewTopic}/>}
+      {state === "startrecording" && <StartRecording  changeState={changeState} topic={topic}/>}
+      {state === "generatesummary" && <GenerateSummary  changeState={changeState} topic={topic}/>}
+      {state === "result" && <Result  changeState={changeState}/>}
       
     </>
   )
