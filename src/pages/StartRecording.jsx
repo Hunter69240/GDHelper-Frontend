@@ -3,14 +3,14 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import api from "../services/api"
-import CircularProgress from "@mui/material/CircularProgress";
+
 
 const StartRecording = ({ changeState, topic,setResponseData }) => {
   const [recording, setRecording] = useState(false);
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
   const [loading,setLoading]=useState(false)
-  const [showButtons,setShowButtons]=useState(true)
+  
 
   const startRecording = async () => {
     try {

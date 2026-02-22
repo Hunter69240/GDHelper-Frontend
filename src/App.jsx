@@ -24,9 +24,17 @@ function App() {
   function setNewTopic(newTopic){
     setTopic(newTopic)
   }
+
+  function goHome() {
+    setState("mainscreen");
+    setTopic("");
+    setResponseData(null);
+    setAiResponse("");
+    setGeneratedTranscript("");
+  }
   return (
     <>
-      <Header changeState={changeState}/>
+      <Header changeState={goHome}/>
       {state === "mainscreen" && <MainScreen state={state} changeState={changeState}/>}
       {state === "generatetopic" && <GenerateTopic state={state} changeState={changeState} topic={topic} setNewTopic={setNewTopic}/>}
       {state === "startrecording" && <StartRecording  changeState={changeState} topic={topic} setResponseData={setResponseData}/>}

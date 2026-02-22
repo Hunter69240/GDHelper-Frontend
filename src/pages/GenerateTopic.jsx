@@ -36,6 +36,7 @@ const GenerateTopic = ({state,changeState,topic,setNewTopic}) => {
             gap:3
           }}
           >
+              {error && <Typography>{error}</Typography>}
               <Typography>{topic || "Click on the button to generate a topic"}</Typography>
               <Button
               variant="contained"
