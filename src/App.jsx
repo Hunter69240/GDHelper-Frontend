@@ -13,6 +13,10 @@ function App() {
   const [state,setState] = useState("mainscreen")
   const [topic,setTopic]=useState("")
 
+  const [responseData,setResponseData]=useState(null)
+
+  const [aiResponse,setAiResponse]=useState("")
+  const [generatedTranscript,setGeneratedTranscript]=useState("")
   function changeState(newState){
     setState(newState)
   }
@@ -22,12 +26,12 @@ function App() {
   }
   return (
     <>
-      <Header/>
+      <Header changeState={changeState}/>
       {state === "mainscreen" && <MainScreen state={state} changeState={changeState}/>}
       {state === "generatetopic" && <GenerateTopic state={state} changeState={changeState} topic={topic} setNewTopic={setNewTopic}/>}
-      {state === "startrecording" && <StartRecording  changeState={changeState} topic={topic}/>}
-      {state === "generatesummary" && <GenerateSummary  changeState={changeState} topic={topic}/>}
-      {state === "result" && <Result  changeState={changeState}/>}
+      {state === "startrecording" && <StartRecording  changeState={changeState} topic={topic} setResponseData={setResponseData}/>}
+      {state === "generatesummary" && <GenerateSummary  changeState={changeState} topic={topic} responseData={responseData} setGeneratedTranscript={setGeneratedTranscript} setAiResponse={setAiResponse}/>}
+      {state === "result" && <Result  changeState={changeState} aiResponse={aiResponse} topic={topic} generatedTranscript={generatedTranscript}/>}
       
     </>
   )
