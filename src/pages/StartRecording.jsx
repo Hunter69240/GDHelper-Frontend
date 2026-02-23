@@ -48,7 +48,7 @@ const StartRecording = ({ changeState, topic,setResponseData }) => {
   const uploadAudio = async (audioBlob) => {
   try {
     setLoading(true); 
-    setShowButtons(false)
+    
     const formData = new FormData();
     formData.append("audio", audioBlob, "speech.webm");
     formData.append("topic", topic);
