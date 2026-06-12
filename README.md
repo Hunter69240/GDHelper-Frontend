@@ -290,7 +290,7 @@ This project is licensed under the MIT License.
 
 <div align="center">
 
-**Built with ❤️ by the GDHelper Team**
+
 
 [⭐ Star this repository](https://github.com/Hunter69240/GDHelper-Backend) if you find it helpful!
 
